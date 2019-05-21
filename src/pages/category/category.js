@@ -18,7 +18,7 @@ new Vue({
   created() {
     this.getTopLists()
     this.getSubLists()
-  },
+    this.getRankLists(this.topId)},
   mounted(){
     console.log(this.rankLists);
   },
@@ -33,9 +33,9 @@ new Vue({
     },
     chooseTop(id) {
       this.topId = id
-      if (id > 0) {
+      if (id < 0) {
         this.getRankLists(id)
-      } else if (id < 0) {
+      } else if (id > 0) {
         this.getSubLists(id)
       }
     },

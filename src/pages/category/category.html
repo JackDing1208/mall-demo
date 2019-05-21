@@ -63,7 +63,7 @@
       <div class="class-category">
         <div id="scroll-main-wrap" class="main-content">
           <div id="scroll-main-content" class="js-main-content inner-content"
-               style="height: 943px; transform: translate3d(0px, 0px, 0px);" v-show="topId>0">
+               style="height: 943px; transform: translate3d(0px, 0px, 0px);" v-show="topId<0">
             <div class="hot-wrap">
               <div class="hot-goods">
                 <div class="hot-title">
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div id="scroll-main-content" class="js-main-content inner-content"
-               style="height: 534px; transform: translate3d(0px, 0px, 0px);" v-show="topId<0">
+               style="height: 534px; transform: translate3d(0px, 0px, 0px);" v-show="topId>0">
             <h3 class="category-title">热门品牌 </h3>
             <ul class="category-content">
               <li class="category-item js-category-item" v-for="list in brandLists"
@@ -144,7 +144,7 @@
       </div>
     </div>
   </div>
-  <Siderbar></Siderbar>
+  <Siderbar selected="2"></Siderbar>
 </div>
 </body>
 
