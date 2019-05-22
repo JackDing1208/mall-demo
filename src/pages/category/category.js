@@ -2,6 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from '../../modules/js/api.js'
 import Siderbar from 'components/Siderbar'
+import Mixin from 'js/mixin.js'
 
 import './category.css'
 import 'css/common.css'
@@ -57,5 +58,6 @@ new Vue({
   },
   components: {
     Siderbar
-  }
+  },
+  mixins:[Mixin]
 })

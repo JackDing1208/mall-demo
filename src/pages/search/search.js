@@ -3,6 +3,7 @@ import axios from 'axios'
 import url from '../../modules/js/api.js'
 import qs from 'qs'
 import Velocity from 'velocity-animate'
+import Mixin from 'js/mixin.js'
 
 import './search.css'
 import 'css/common.css'
@@ -37,5 +38,6 @@ new Vue({
     goToTop(){
       Velocity(document.body,'scroll',{duration:500})    //第三方动画库
     }
-  }
+  },
+  mixins:[Mixin]
 })
