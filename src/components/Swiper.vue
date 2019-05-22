@@ -3,12 +3,11 @@
     <div class="swiper-wrapper">
       <div class="swp-page swiper-slide" v-for="list in lists">
         <a class="js-no-follow" href='#'>
-          <img class="goods-main-photo fadeIn" :src=list.img>
+          <img class="goods-main-photo fadeIn" :src=list.img @load="imgLoad">
         </a>
       </div>
     </div>
-    <div class="swiper-pagination"></div>
-
+    <div class="swiper-pagination" v-show="isShow"></div>
   </div>
 
 
@@ -25,7 +24,7 @@
     },
     data(){
       return{
-        loading:true
+        isShow:false
       }
     },
     mounted() {
@@ -37,6 +36,11 @@
           el: '.swiper-pagination',
         },
       })
+    },
+    methods:{
+      imgLoad(){
+        this.isShow=true
+      }
     }
   }
 </script>
