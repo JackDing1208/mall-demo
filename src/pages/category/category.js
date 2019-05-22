@@ -51,6 +51,9 @@ new Vue({
         console.log(this.rankLists);
       })
     },
+    getSearch(list){
+      window.location.href=`search.html?keyword=${list.name}&id=${list.id}`
+    }
   },
   components: {
     Siderbar
