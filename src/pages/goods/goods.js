@@ -36,9 +36,7 @@ new Vue({
   created() {
     this.getDetails()
   },
-  mounted(){
-    console.log(this.swiperLists);
-  },
+
   methods: {
     getDetails() {
       axios.get(url.goods, { id }).then(res => {

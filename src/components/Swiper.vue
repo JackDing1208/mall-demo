@@ -34,7 +34,6 @@
           el: '.swiper-pagination',
         },
       })
-      console.log(this.lists);
     },
     methods:{
       imgLoad(){
