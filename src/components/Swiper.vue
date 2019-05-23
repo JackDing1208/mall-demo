@@ -9,8 +9,6 @@
     </div>
     <div class="swiper-pagination" v-show="isShow"></div>
   </div>
-
-
 </template>
 
 <script>

@@ -5,7 +5,9 @@ let url = {
   topLists: '/category/topList',
   rankLists: '/category/rank',
   subLists:'/category/subList',
-  searchLists:'/search/list'
+  searchLists:'/search/list',
+  goods:'/goods/details'
+
 }
 
 //方便开发环境与生产换件接口切换

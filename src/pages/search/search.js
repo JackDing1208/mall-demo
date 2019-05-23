@@ -9,7 +9,7 @@ import './search.css'
 import 'css/common.css'
 
 let {keyword,id}= qs.parse(location.search.substr(1))      //处理查询参数
-console.log(keyword);
+
 
 new Vue({
   el:'#app',

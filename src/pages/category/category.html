@@ -18,11 +18,13 @@
   <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
   <title>分类</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+  <style>
+    [v-cloak] {display: none;}
+  </style>
 </head>
 
 <body class=" " style="">
-<div id="app">
+<div id="app" v-cloak>
   <div class="container with-bottom-nav" style="min-height: 667px; height: 667px;">
     <div class="custom-search js-search-bar">
       <form>
@@ -72,7 +74,7 @@
                 </div>
                 <ul v-if="rankLists">
                   <li class="goods-item" v-for="(list,index) in rankLists.hotGoods">
-                    <a href="">
+                    <a :href="'goods.html?id='+list.id">
                       <div class="thumb badge center-img">
                         <img :src=list.img>
                         <span class="num">{{index+1}}</span>
@@ -98,7 +100,7 @@
                   <li class="shop-item" v-for="(list,index) in rankLists.hotShops">
                     <div class="shop-title">
                       <span class="badge">{{index+1}}</span>
-                      <a :href="list.clickUrl">{{list.name}}</a>
+                      <a href="#">{{list.name}}</a>
                       <span class="follows"> / 关注度: {{list.follows}}</span>
                     </div>
                     <ul class="shop-images">
@@ -114,7 +116,7 @@
                   <p class="pull-left">热搜词排行</p>
                 </div>
                 <ul class="keywords-list" v-if="rankLists">
-                  <li v-for="value in rankLists.hotKeywords"><a href="javascript:;" class="js-hot-keyword">{{value}}</a>
+                  <li v-for="value in rankLists.hotKeywords"><a :href="'search.html?keyword='+value" class="js-hot-keyword">{{value}}</a>
                   </li>
                 </ul>
               </div>
@@ -125,7 +127,7 @@
             <h3 class="category-title">热门品牌 </h3>
             <ul class="category-content">
               <li class="category-item js-category-item" v-for="list in brandLists"
-                  data-item-id="list.id" :data-item-name="list.name">
+                  data-item-id="list.id" :data-item-name="list.name" @click="getSearch(list)">
                 <img :src=list.img :alt="list.name" class="category-img">
                 <span class="category-item-name">{{list.name}}</span>
               </li>
