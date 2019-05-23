@@ -1,37 +1,120 @@
-import Vue from 'vue'
-import axios from 'axios'
-import url from '../../modules/js/api.js'
-import qs from 'qs'
-import Mixin from 'js/mixin.js'
-
 import './goods_common.css'
 import './goods_custom.css'
 import './goods.css'
 import './goods_theme.css'
 import './goods_mars.css'
 import './goods_sku.css'
-import './goods_base.css'
+import './goods_transition.css'
 
-let {id}=qs.parse(location.search.substr(1))
+import Vue from 'vue'
+import url from 'js/api.js'
+import axios from 'axios'
+import mixin from 'js/mixin.js'
+import qs from 'qs'
+import Swiper from 'components/Swiper.vue'
+
+
+
+let { id } = qs.parse(location.search.substr(1))
+
+let detailTab = ['商品详情', '本店成交']
 
 new Vue({
-  el:'#app',
+  el: '#app',
   data: {
-    id,
-    goodLists:null
+    details: null,
+    detailTab,
+    tabIndex: 0,
+    dealLists: null,
+    swiperLists: [],
+    showSku: false,
+    skuType: 1,
+    skuNum: 1,
+    isAddCart: false,
+    showAddMessage: false
   },
   created() {
-    this.getGoods()
+    this.getDetails()
+  },
+  mounted(){
+    console.log(this.swiperLists);
   },
   methods: {
-    getGoods(){
-      console.log(this.id);
-      axios.get(url.goods,{id}).then((res)=>{
-        this.goodLists=res.data
-        console.log(this.goodLists)
+    getDetails() {
+      axios.get(url.goods, { id }).then(res => {
+        // 先修改数据结构，再赋值
+        let data = res.data.data
+        data.skuList.forEach(sku => {
+          let lists = []
+          sku.lists.forEach(item => {
+            lists.push({
+              active: false,
+              tag: item
+            })
+          })
+          sku.lists = lists
+        })
+
+        this.details = data
+        this.details.imgs.forEach(item => {
+          this.swiperLists.push({
+            clickUrl: '',
+            img: item
+          })
+        })
+      })
+    },
+    changeTabIndex(index) {
+      this.tabIndex = index
+      if (index) {
+        this.getDeal()
+      }
+    },
+    getDeal() {
+      axios.get(url.deal, { id }).then(res => {
+        this.dealLists = res.data.data.lists
+      })
+    },
+    chooseSku(type) {
+      this.showSku = true
+      this.skuType = type
+    },
+    chooseTag(item, index, arr) {
+      if (item.active) {
+        item.active = false
+      } else {
+        arr.forEach((cur, i) => {
+          cur.active = i === index
+        })
+      }
+    },
+    changeSkuNum(num) {
+      if (num < 0 && this.skuNum === 1) return
+      this.skuNum += num
+    },
+    addCart() {
+      axios(url.cartAdd, {id, number: this.skuNum}).then(res => {
+        if(res.data.status === 200 ){
+          this.isAddCart = true
+          this.showSku = false
+          this.showAddMessage = true
+          setTimeout(() => {
+            this.showAddMessage = false
+          },1000)
+        }
       })
     }
   },
-  mixins:[Mixin]
-
+  components: {
+    Swiper
+  },
+  watch: {
+    showSku(val) {      //监听状态锁定视窗
+      document.body.style.overflow = val ? 'hidden' : 'auto'
+      document.body.style.height = val ? '100%' : 'auto'
+      document.querySelector('html').style.overflow = val ? 'hidden' : 'auto'
+      document.querySelector('html').style.height = val ? '100%' : 'auto'
+    }
+  },
+  mixins: [mixin]
 })
