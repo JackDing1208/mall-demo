@@ -4,11 +4,11 @@ let url = {
   banner: '/index/banner',
   topLists: '/category/topList',
   rankLists: '/category/rank',
-  subLists:'/category/subList',
-  searchLists:'/search/list',
-  goods:'/goods/details',
-  deal:'/goods/deal'
-
+  subLists: '/category/subList',
+  searchLists: '/search/list',
+  goods: '/goods/details',
+  deal: '/goods/deal',
+  cartList: '/cart/list'
 }
 
 //方便开发环境与生产换件接口切换
