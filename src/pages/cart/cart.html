@@ -28,21 +28,25 @@
         <div class="js-shop-list shop-list">
           <div class="block block-order block-cart" v-for="(shop,shopIndex) in cartList">
             <div class="header">
-              <div class="select-group js-select-group"><span class="check" :class="{checked:shop.checked}" @click="selectShop(shop)"></span></div>
+              <div class="select-group js-select-group"><span class="check" :class="{checked:shop.checked}"
+                                                              @click="selectShop(shop)"></span></div>
               <a class="shop-title"><i class="custom-store-img">店铺：</i>{{shop.shopTitle}}</a>
-              <a href="javascript:;" data-type="cart" class="j-edit-list pull-right c-blue font-size-12 edit-list" @click="editShop(shop)">
+              <a href="javascript:;" data-type="cart" class="j-edit-list pull-right c-blue font-size-12 edit-list"
+                 @click="editShop(shop)">
                 {{shop.editText}}
               </a>
             </div>
             <div>
               <ul class="js-list block block-list block-list-cart border-0">
                 <li class="block-item block-item-cart" v-for="(good,index) in shop.goodsList"
-                    :key="good.id"  :class="{editing:shop.editable}" >
+                    :key="good.id" :class="{editing:shop.editable}">
                   <div>
-                    <div class="check-container"><span class="check" :class="{checked:good.checked}" @click="selectGood(good,shop)"></span></div>
+                    <div class="check-container"><span class="check" :class="{checked:good.checked}"
+                                                       @click="selectGood(good,shop)"></span></div>
                     <div class="name-card clearfix">
-                      <a  class="thumb js-goods-link"><img :data-src=good.img class="js-lazy" :src=good.img></a>
-                      <div class="detail"><a :href="'goods.html?id='+good.id" class="js-goods-link"><h3 class="title js-ellipsis"><i>{{good.title}}</i>
+                      <a class="thumb js-goods-link"><img :data-src=good.img class="js-lazy" :src=good.img></a>
+                      <div class="detail"><a :href="'goods.html?id='+good.id" class="js-goods-link"><h3
+                        class="title js-ellipsis"><i>{{good.title}}</i>
                       </h3></a>
                         <p class="sku ellipsis">
                           {{good.sku}}
@@ -53,7 +57,7 @@
                           <!---->
                         </div>
                         <!-- 编辑状态 -->
-                        <div class="num" v-show="shop.editable " >
+                        <div class="num" v-show="shop.editable ">
                           <!---->
                           <div class="quantity">
                             <button type="button" class="minus " :class="{disabled:good.number===1}"></button>
@@ -81,7 +85,7 @@
             你需要分开结算每个店铺的商品哦~
           </div>
           <div class="bottom-cart clear-fix">
-            <div class="select-all" @click="selectAll"><span class="check" :class="{checked:isAll}" ></span> 全选
+            <div class="select-all" @click="selectAll"><span class="check" :class="{checked:isAll}"></span> 全选
             </div>
             <!-- 显示状态 -->
             <div class="total-price">
@@ -92,9 +96,13 @@
               结算 ({{selectList.length}})
             </button>
             <!-- 编辑状态 -->
-            <button href="javascript:;" disabled="disabled" class="j-delete-goods btn font-size-14 btn-red" v-show="false">删除
+            <button href="javascript:;" disabled="disabled" class="j-delete-goods btn font-size-14 btn-red"
+                    v-show="false">删除
             </button>
           </div>
+        </div>
+        <div class="empty-list" v-show="cartList.length===0"><h2>购物车快饿瘪了T.T</h2>
+          <div class="go-homepage-btn"><a href="index.html">去逛逛</a></div>
         </div>
       </div>
     </div>

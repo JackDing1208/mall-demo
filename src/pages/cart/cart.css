@@ -1709,3 +1709,19 @@ only screen and (min-device-pixel-ratio: 1.5) {
   top: initial;
   bottom: 0px
 }
+
+.go-homepage-btn{
+  box-sizing: border-box;
+  width: 104px;
+  height: 36px;
+  line-height: 18px;
+  padding: 8px 0;
+  font-size: 14px;
+  border: 1px solid #f60;
+  margin: 30px auto 0;
+  color: #f60;
+  border-radius: 3px;
+}
+.go-homepage-btn a{
+  color: #f60;
+}
