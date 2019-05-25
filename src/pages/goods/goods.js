@@ -91,7 +91,7 @@ new Vue({
       this.skuNum += num
     },
     addCart() {
-      axios(url.cartAdd, {id, number: this.skuNum}).then(res => {
+      axios.post(url.cartUpdate, {id, number: this.skuNum}).then(res => {
         if(res.data.status === 200 ){
           this.isAddCart = true
           this.showSku = false

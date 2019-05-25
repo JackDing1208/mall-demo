@@ -8,7 +8,11 @@ let url = {
   searchLists: '/search/list',
   goods: '/goods/details',
   deal: '/goods/deal',
-  cartList: '/cart/list'
+  cartList: '/cart/list',
+  cartAdd: '/cart/add',
+  cartMinus: '/cart/reduce',
+  cartRemove: '/cart/remove',
+  cartUpdate: '/cart/update'
 }
 
 //方便开发环境与生产换件接口切换
