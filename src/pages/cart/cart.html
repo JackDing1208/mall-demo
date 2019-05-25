@@ -93,7 +93,7 @@
               <p class="c-gray-dark">不含运费</p>
             </div>
             <button href="javascript:;" class="js-go-pay btn btn-orange-dark font-size-14" @click="checkout">
-              结算 ({{selectList.length}})
+              结算 ({{selectNum}})
             </button>
             <!-- 编辑状态 -->
             <button href="javascript:;" disabled="disabled" class="j-delete-goods btn font-size-14 btn-red"
@@ -101,7 +101,7 @@
             </button>
           </div>
         </div>
-        <div class="empty-list" v-show="cartList.length===0"><h2>购物车快饿瘪了T.T</h2>
+        <div class="empty-list" v-show="cartList && cartList.length===0"><h2>购物车快饿瘪了T.T</h2>
           <div class="go-homepage-btn"><a href="index.html">去逛逛</a></div>
         </div>
       </div>

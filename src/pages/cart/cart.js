@@ -2,6 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import url from '../../modules/js/api.js'
 import Mixin from 'js/mixin.js'
+import http from 'js/http.js'
 
 
 import './cart.css'
@@ -52,6 +53,12 @@ new Vue({
       }
       this.selectList = currentGoods
       return currentTotal
+    },
+    selectNum(){
+      if(this.selectList.length>0){
+        return this.selectList.length
+      }
+      return 0
     }
   },
   created() {
@@ -60,7 +67,7 @@ new Vue({
   },
   methods: {
     getCartList() {
-      axios.get(url.cartList).then(res => {
+      http.get(url.cartList).then(res => {
         //先加属性再给data赋值实现响应式
         res.data.cartList.forEach((shop) => {
           shop.checked = false
