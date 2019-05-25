@@ -12,7 +12,7 @@ new Vue({
   el: ".container",
   data: {
     cartList: null,
-    editable: false,
+    selectList: null,
 
   },
   computed: {
@@ -27,17 +27,36 @@ new Vue({
         return false
       },
       set(value) {
-        this.cartList.forEach((shop)=>{
-          shop.checked=value
-          shop.goodsList.forEach((good)=>{
-            good.checked=value
+        this.cartList.forEach((shop) => {
+          shop.checked = value
+          shop.goodsList.forEach((good) => {
+            good.checked = value
           })
         })
       }
+    },
+    totalPrice() {
+      //每次计算前清空再赋值
+      let currentTotal = 0
+      let currentGoods = []
+      if (this.cartList) {
+        this.cartList.forEach((shop) => {
+          shop.goodsList.forEach((good) => {
+            if (good.checked) {
+              currentTotal += good.price * good.number
+              currentGoods.push(good)
+            }
+          })
+        })
+      }
+      this.selectList = currentGoods
+      console.log(currentTotal);
+      return currentTotal
     }
   },
   created() {
     this.getCartList()
+
   },
   methods: {
     getCartList() {
@@ -45,6 +64,7 @@ new Vue({
         //先加属性再给data赋值实现响应式
         res.data.cartList.forEach((shop) => {
           shop.checked = true
+          shop.editable = false
           shop.goodsList.forEach((good) => {
             good.checked = true
           })
@@ -55,12 +75,10 @@ new Vue({
     },
     selectGood(good, shop) {
       good.checked = !good.checked
-
-      shop.checked = shop.goodsList.every((good) => {   //every方法检验每个元素是否符合要求，根据全部判断结果返回值
+      //every方法检验每个元素是否符合要求，根据全部判断结果再返回真假值
+      shop.checked = shop.goodsList.every((good) => {
         return good.checked === true
       })
-
-
     },
     selectShop(shop) {
       shop.checked = !shop.checked
@@ -71,7 +89,7 @@ new Vue({
     selectAll() {
       this.isAll = !this.isAll
       console.log(this.isAll);
-    }
+    },
   },
   mixins: [Mixin]
 })
