@@ -73,7 +73,7 @@
         <div class="block block-list list-vertical">
           <router-link class="block-item link clearfix ico-setting js-login" to="/address" target="_self">
             <p class="title-info c-black font-size-14">收货地址管理
-                  <span style="color:red">(已实现功能)</span></p>
+                  <span style="color:red">(功能已实现)</span></p>
           </router-link>
 
         </div>
