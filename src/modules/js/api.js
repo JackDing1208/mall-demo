@@ -12,7 +12,12 @@ let url = {
   cartAdd: '/cart/add',
   cartMinus: '/cart/reduce',
   cartRemove: '/cart/remove',
-  cartUpdate: '/cart/update'
+  cartUpdate: '/cart/update',
+  addressLists: '/address/list',
+  addressAdd: '/address/add',
+  addressRemove: '/address/remove',
+  addressUpdate: '/address/update',
+  addressSetDefault: '/address/setDefault'
 }
 
 //方便开发环境与生产换件接口切换

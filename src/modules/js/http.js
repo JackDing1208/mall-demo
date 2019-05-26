@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let fetch = function (method, url, data) {
+let ajax = function (method, url, data) {
   return new Promise((resolve, reject) => {
     axios({method, url, data})
       .then((res) => {
@@ -19,10 +19,10 @@ let fetch = function (method, url, data) {
 }
 let http = {
   get(url, data) {
-    return fetch('get', url, data)
+    return ajax('get', url, data)
   },
   post(url, data) {
-    return fetch('post', url, data)
+    return ajax('post', url, data)
   }
 }
 

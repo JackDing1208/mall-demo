@@ -1,7 +1,8 @@
 import Vue from 'vue'
-import axios from 'axios'
-import url from '../../modules/js/api.js'
+import router from './router/index'
 
 
-import './member.css'
-import './member_base.css'
+new Vue({
+  el: '#app',
+  router
+})
