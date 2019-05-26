@@ -11,7 +11,7 @@
     </div>
     <div class="block stick-bottom-row center">
       <router-link class="btn btn-blue js-no-webview-block js-add-address-btn"
-                   :to="{path:'/address/form',query:{type:'add'}}">
+                   :to="{name:'form',query:{type:'add'}}">
         新增地址
       </router-link>
     </div>

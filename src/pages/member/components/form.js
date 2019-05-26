@@ -10,23 +10,22 @@ export default {
       districtValue: -1,
       address: '',
       id: '',
-      type: this.$route.query.type,
+      type: '',
       addressData: require('js/address.json'),
       cityList: null,
       districtList: null,
-      instance: this.$route.query.instance,
+      instance: null
       // instance: JSON.parse(sessionStorage.getItem('instance'))
     }
   },
   created() {
-    if(this.type === 'edit') {
       let ad = this.instance
       this.provinceValue = parseInt(ad.provinceValue)
       this.name = ad.name
       this.tel = ad.tel
       this.address = ad.address
       this.id = ad.id
-    }
+
   },
   methods: {
     add() {
@@ -45,11 +44,11 @@ export default {
       }
     },
     remove() {
-      if (window.confirm("确认删除?")) { 
+      if (window.confirm("确认删除?")) {
         Address.remove(this.id).then(res => {
           this.$router.go(-1)
         })
-      } 
+      }
     },
     setDefault() {
       Address.setDefault(this.id).then(res => {
