@@ -21,11 +21,13 @@ new Vue({
     page: 1,
     isBottom: false,
     pageLimit:7,
-    banner:null
+    banner:null,
+    shops:null
   },
   created() {
     this.getLists()
     this.getBanners()
+    this.getShops()
   },
   methods: {
     getLists() {
@@ -43,7 +45,6 @@ new Vue({
           }
           this.page++
           this.loading = false
-          console.log(this.lists);
         })
       }
     },
@@ -51,7 +52,13 @@ new Vue({
       axios.get(url.banner).then((res) => {
         this.banner= res.data.lists;
       })
+    },
+    getShops(){
+      axios.get(url.hotShops).then((res)=>{
+        this.shops=res.data.lists
+      })
     }
+
   },
   components: {
     Siderbar,Swiper

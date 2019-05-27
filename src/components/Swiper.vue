@@ -48,10 +48,6 @@
     width: 100%;
   }
 
-  .holder {
-    height: 180px;
-  }
-
   .swiper-slide {
     width: 100%;
   }
@@ -61,6 +57,7 @@
     width: 100%;
   }
   .swiper-pagination{
-    margin :0 auto
+    display: flex;
+    justify-content: center;
   }
 </style>

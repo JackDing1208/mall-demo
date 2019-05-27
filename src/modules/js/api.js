@@ -1,6 +1,7 @@
 //设置请求路径
 let url = {
   hotLists: '/index/hotLists',
+  hotShops: '/index/hotShop',
   banner: '/index/banner',
   topLists: '/category/topList',
   rankLists: '/category/rank',

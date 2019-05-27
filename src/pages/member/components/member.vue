@@ -43,6 +43,12 @@
           </a>
         </div>
         <div class="block block-list list-vertical">
+          <router-link class="block-item link clearfix ico-setting js-login" to="/address" target="_self">
+            <p class="title-info c-black font-size-14">收货地址管理
+              <span style="color:red">(功能已实现)</span></p>
+          </router-link>
+        </div>
+        <div class="block block-list list-vertical">
           <a class="block-item link clearfix ico-favior js-login" >
             <p class="title-info c-black font-size-14">收藏的商品</p>
           </a>
@@ -70,13 +76,7 @@
             <p class="title-info c-black font-size-14">我的返现</p>
           </a>
         </div>
-        <div class="block block-list list-vertical">
-          <router-link class="block-item link clearfix ico-setting js-login" to="/address" target="_self">
-            <p class="title-info c-black font-size-14">收货地址管理
-                  <span style="color:red">(功能已实现)</span></p>
-          </router-link>
 
-        </div>
       </div>
     </div>
   </div>
