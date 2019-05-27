@@ -711,3 +711,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   color: #666;
   margin-right: 20px
 }
+
+.stick-bottom-row{
+  margin-bottom: 0;
+}
