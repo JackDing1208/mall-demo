@@ -22,15 +22,15 @@
 
   export default {
     name: "allList",
-    data() {
-      return {
-        lists: null
+
+    computed:{
+      lists(){
+        return this.$store.state.list
       }
     },
     created() {
-      Address.list().then(res => {
-        this.lists = res.data.lists
-      })
+      this.$store.dispatch('requestList')
+
     },
     methods: {
       toEdit(list){    //编程式路由

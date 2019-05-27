@@ -4,10 +4,7 @@ import member from '../components/member'
 import address from '../components/address'
 import all from '../components/allList'
 import form from '../components/formList'
-
-
 Vue.use(Router)
-
 
 export default new Router({
   routes: [
