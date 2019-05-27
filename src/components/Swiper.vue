@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import Swiper from 'swiper'
+  import Swiper from 'swiper/dist/js/swiper.js'
   import 'swiper/dist/css/swiper.css'
 
   export default {
@@ -20,9 +20,9 @@
     props: {
       lists: {}
     },
-    data(){
-      return{
-        isShow:false
+    data() {
+      return {
+        isShow: false
       }
     },
     mounted() {
@@ -35,9 +35,9 @@
         },
       })
     },
-    methods:{
-      imgLoad(){
-        this.isShow=true
+    methods: {
+      imgLoad() {
+        this.isShow = true
       }
     }
   }
@@ -47,7 +47,8 @@
   .swiper-container {
     width: 100%;
   }
-  .holder{
+
+  .holder {
     height: 180px;
   }
 
@@ -58,5 +59,8 @@
   .swiper-slide img {
     height: 100%;
     width: 100%;
+  }
+  .swiper-pagination{
+    margin :0 auto
   }
 </style>
