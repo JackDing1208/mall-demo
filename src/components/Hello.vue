@@ -27,6 +27,9 @@ export default {
     return {
       msg: 'Welcome to 饥人谷 vue 项目班'
     }
+  },
+  created() {
+    this.$nextTick()
   }
 }
 </script>
